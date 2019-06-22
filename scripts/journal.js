@@ -1,24 +1,36 @@
-fetch("http://localhost:3000/journalEntries")
-    .then(entries => entries.json())  // Parse as JSON
-    .then(parsedentries => {
-        renderJournalEntries(parsedentries)
+// fetch("http://localhost:3000/journalEntries")
+//     .then(entries => entries.json())  // Parse as JSON
+//     .then(parsedentries => {
+//         renderJournalEntries(parsedentries)
+//         })
+   
+
+        /*
+    Main application logic that uses the functions and objects
+    defined in the other JavaScript files.
+
+    Change the fake variable names below to what they should be
+    to get the data and display it.
+*/
+// objectWithGetterMethod.methodToGetData().then(functionThatRendersData)
+
+
+   API.getJournalEntries () 
+        .then(parsedentries =>{
+            renderJournalEntries(parsedentries)
         })
-        // What should happen when we finally have the array?
+   
+   
+   
+   
+   
+   
+   // What should happen when we finally have the array?
   
 
 
 
-const makeJournalEntryComponent = (journalEntry) => {
-    // Create your own HTML structure for a journal entry
-    return ` 
-    <div class="journalEntries">
-                <h1>${journalEntry.dateOfentry}</h1>
-                <section>${journalEntry.conceptOfentry}</section>
-                <aside>${journalEntry.entryForToday}</aside>
-                <aside>${journalEntry.moodForToday}</aside>
-            </div>
-    `
-}
+
 // console.log(makeJournalEntryComponent);
 
 
@@ -33,14 +45,7 @@ const makeJournalEntryComponent = (journalEntry) => {
 
     Arguments: entries (array of objects)
 */
-const renderJournalEntries = (entries) => {
-    for (let i = 0; i < entries.length; i++) {
-        document.querySelector(".entryLog").innerHTML += makeJournalEntryComponent (
-          entries[i]
-        )
-    }
 
-}
 
 // Invoke the render function
 // renderJournalEntries(journalEntries);
